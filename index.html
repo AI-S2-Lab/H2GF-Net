@@ -210,101 +210,95 @@ hr{
 
   <hr>
 
-<div class="section-title">Demo Examples</div>
+    <!-- Demo Examples -->
+    <div class="section-title">Demo Examples</div>
+    <div class="col-headers">
+      <div></div>
+      <div class="col-h">Multimodal Input</div>
+      <div class="col-h">Multimodal Affective Description (Stage1)</div>
+      <div class="col-h">Variables (Stage2)</div>
+      <div class="col-h">Final Prediction</div>
+    </div>
 
-<table class="demo-table">
-  <thead>
-    <tr>
-      <th>Case</th>
-      <th>Multimodal Input</th>
-      <th>Multimodal Affective Description (Stage1)</th>
-      <th>Variables (Stage2)</th>
-      <th>Final Prediction</th>
-    </tr>
-  </thead>
-  <tbody>
     <!-- Case 1 -->
-    <tr>
-      <td class="case-cell">Case 1</td>
+    <div class="case-row">
+      <div class="case-label">Case 1</div>
 
-      <td>
-        <img src="Supplementary/case1_video.png" width="100%"><br><br>
-        <b>Text:</b><br>
-        “Okay, anyway, I need to get a head count so I know who’s coming.”<br><br>
-        <img src="Supplementary/case1_wave.png" width="100%">
-      </td>
+      <div class="card">
+        <div class="media">
+          <img src="Supplementary/case1_video.png" width="100%">
+        </div>
+        <div class="quote">
+          “Okay, anyway, I need to get a head count so I know who’s coming.”
+        </div>
+        <div class="wave">
+          <img src="Supplementary/case1_wave.png" width="100%">
+        </div>
+      </div>
 
-      <td>
-        Bot's message:' Based on the video provided, the person in the video is expressing a mix of emotions, 
-        including: 1. Determination: the person's facial expression is focused and determined, with a slight 
-        furrowed brow, indicating a sense of purpose and resolve. 
-        2. Frustration: the person's tone of voice is somewhat irritated and frustrated, as they mention the 
-        need to get a head count to know who's coming. 3. Curiosity: the person's expression also shows a hint 
-        of curiosity, as they ask for a head count, which suggests a desire to understand the situation better. 
-        The emotions expressed in the video reflect a mix of frustration and determination, with a hint of curiosity. 
-        These emotions could be interpreted as the person trying to navigate a challenging situation while still 
-        maintaining a sense of purpose and resolve.
-      </td>
+      <div class="card stage1">
+        Bot's message: Based on the video provided...
+        (Stage1 description here)
+      </div>
 
-      <td>
-        <b>Top-M Text (5%)</b><br>
-        Head Count<br><br>
-        <b>Top-K Keyframe (10%)</b><br>
+      <div class="card vars">
+        Top-M Text (5%)<br><br>
+        <div>Head Count</div><br>
+        Top-K Keyframe (10%)<br>
         <img src="Supplementary/case1_keyframe.png" width="100%">
-      </td>
+      </div>
 
-      <td>
-        <b>Ground Truth:</b> Inform<br><br>
-        <span class="ours"><b>H²GF-Net:</b> Inform</span><br><br>
+      <div class="card pred">
+        Ground Truth: Inform<br><br>
+        <span class="ours">H²GF-Net: Inform</span><br><br>
         MAG-BERT: Ask for help<br>
         MuLT: Taunt<br>
         MISA: Ask for help<br>
         TCL-MAP: Ask for help
-      </td>
-    </tr>
+      </div>
+    </div>
+
+    <div class="dash"></div>
 
     <!-- Case 2 -->
-    <tr>
-      <td class="case-cell">Case 2</td>
+    <div class="case-row">
+      <div class="case-label">Case 2</div>
 
-      <td>
-        <img src="Supplementary/case2_video.png" width="100%"><br><br>
-        <b>Text:</b><br>
-        “Yeah, but I don’t think anyone should have that much power.”<br><br>
-        <img src="Supplementary/case2_wave.png" width="100%">
-      </td>
+      <div class="card">
+        <div class="media">
+          <img src="Supplementary/case2_video.png" width="100%">
+        </div>
+        <div class="quote">
+          “Yeah, but I don’t think anyone should have that much power.”
+        </div>
+        <div class="wave">
+          <img src="Supplementary/case2_wave.png" width="100%">
+        </div>
+      </div>
 
-      <td>
-        Bot's message:' In the video, the person's facial expressions and vocal tone are: 
-        1.Facial expressions: the person has a neutral expression, with a slight frown and 
-        furrowed brows, indicating a sense of skepticism or concern. 
-        2.Vocal tone: the person's voice is calm and measured, but with a hint of hesitation 
-        or reservation, suggesting that they are not entirely convinced or supportive of the 
-        idea being discussed. 
-        The intended meaning behind these words is that the person does not think it is appropriate 
-        or justifiable for anyone to have that much power or control over others. This reflects a 
-        sense of unease or discomfort with the concentration of power in the hands of a single 
-        individual or group. The emotion underlying this statement is likely distrust or skepticism.
-      </td>
+      <div class="card stage1">
+        (Stage1 description for Case 2)
+      </div>
 
-      <td>
-        <b>Top-M Text (5%)</b><br>
-        Anyone Power<br><br>
-        <b>Top-K Keyframe (10%)</b><br>
+      <div class="card vars">
+        Top-M Text (5%)<br><br>
+        <div>Anyone Power</div><br>
+        Top-K Keyframe (10%)<br>
         <img src="Supplementary/case2_keyframe.png" width="100%">
-      </td>
+      </div>
 
-      <td>
-        <b>Ground Truth:</b> Oppose<br><br>
-        <span class="ours"><b>H²GF-Net:</b> Oppose</span><br><br>
+      <div class="card pred">
+        Ground Truth: Oppose<br><br>
+        <span class="ours">H²GF-Net: Oppose</span><br><br>
         MAG-BERT: Complain<br>
         MuLT: Criticize<br>
         MISA: Complain<br>
         TCL-MAP: Criticize
-      </td>
-    </tr>
-  </tbody>
-</table>
+      </div>
+    </div>
+
+
+  
  
 
 </div>
