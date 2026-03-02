@@ -232,11 +232,12 @@ hr{
 .pred{
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  justify-content:space-evenly; /* 关键：均匀分布 */
   align-items:flex-start;
   text-align:left;
-  gap:8px;
+  gap:0;
   font-weight:800;
+  height:100%;      /* 让它占满 .card 的高度 */
 }
 
 /* 列表统一间距 */
