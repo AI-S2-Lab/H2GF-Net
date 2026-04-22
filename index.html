@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>H²GF-Net</title>
+
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+  <div class="page">
+    <div class="title">H²GF-Net</div>
+    <div class="subtitle">Hybrid-scale Heterogeneous Graph Fusion for Multimodal Intent Recognition</div>
+
+    <!-- Abstract -->
+    <div class="section-title">Abstract</div>
+    <div class="abstract">
+    Multimodal Intent Recognition (MIR) aims to infer a speaker’s communicative intent by integrating heterogeneous 
+    textual, acoustic, and visual signals. However, intent-related cues are often distributed across fine-grained 
+    local variations and global semantic representations, making it challenging for existing approaches to explicitly 
+    model cross-modal and local-global dependencies within a unified framework. To address this challenge, we propose 
+    the Hybrid-scale Heterogeneous Graph Fusion Network (H$^2$GF-Net), which integrates affective semantic prior–guided 
+    local key information selection with progressive hybrid-scale heterogeneous graph modeling for multimodal intent understanding.
+    Specifically, the model first performs global-scale multimodal affective semantic understanding by generating high-level 
+    affective-intent semantic descriptions, which serve as semantic priors beyond conventional emotion features. Guided by these 
+    priors, H$^2$GF-Net explicitly selects intent-relevant local units across textual, acoustic, and visual modalities, enabling 
+    precise localization of critical multimodal cues. Furthermore, a progressive hybrid-scale heterogeneous graph is constructed 
+    to capture dependencies between local and global representations as well as cross-modal interactions, and these graph representations 
+    are integrated through structure-aware graph fusion to support intent prediction. Experimental results demonstrate that the proposed 
+    method consistently outperforms state-of-the-art approaches on a benchmark dataset, while additional generalization evaluations 
+    further verify its robustness under extended evaluation settings.
+
+    </div>
+
+    <hr>
+
+    <!-- Model Architecture -->
+    <div class="section-title">Model Architecture</div>
+    <div class="model-img">
+      <img src="./Supplementary/model.png" alt="Model Architecture">
+    </div>
+
+    <hr>
+
+    
+    <!-- Demo Examples -->
+    <div class="section-title">Demo Examples</div>
+    <div class="col-headers">
+      <div></div>
+      <div class="col-h">Multimodal Input</div>
+      <div class="col-h">Multimodal Affective Description (Stage1)</div>
+      <div class="col-h">Variables (Stage2)</div>
+      <div class="col-h">Final Prediction</div>
+    </div>
+
+    <!-- Case 1 -->
+    <div class="case-row">
+      <div class="case-label">Case 1</div>
+
+      <div class="card">
+  
+  <!-- Video -->
+  <div class="mm-block">
+    <div class="mm-label">Video</div>
+    <video controls class="mm-video">
+      <source src="Supplementary/case1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Text -->
+  <div class="mm-block">
+    <div class="mm-label">Text</div>
+    <div class="mm-quote">
+      “Okay, anyway, I need to get a head count so I know who’s coming.”
+    </div>
+  </div>
+
+  <!-- Audio -->
+  <div class="mm-block">
+    <div class="mm-label">Audio</div>
+    <audio controls class="mm-audio">
+      <source src="Supplementary/audio1.wav" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+</div>
+
+      <div class="card stage1">
+        Bot's message:' Based on the video provided, the person in the video is expressing a mix of emotions, including: 
+        1. Determination: the person's facial expression is focused and determined, with a slight furrowed brow, indicating a sense of purpose and resolve. 
+        2. Frustration: the person's tone of voice is somewhat irritated and frustrated, as they mention the need to get a head count to know who's coming. 
+        3. Curiosity: the person's expression also shows a hint of curiosity, as they ask for a head count, which suggests a desire to understand the situation better. 
+        The emotions expressed in the video reflect a mix of frustration and determination, with a hint of curiosity. 
+        These emotions could be interpreted as the person trying to navigate a challenging situation while still maintaining a sense of purpose and resolve.
+      </div>
+
+      <div class="card vars">
+        Top-M Text (5%)<br><br>
+        <div>Head Count</div><br>
+        Top-K Keyframe (10%)<br>
+        <img src="Supplementary/figure1.png" width="100%">
+      </div>
+
+      <div class="card pred">
+        <div>Ground Truth: Inform</div>
+        <div><span class="ours">H²GF-Net: Inform</span></div>
+        <div>MAG-BERT: Ask for help</div>
+        <div>MuLT: Taunt</div>
+        <div>MISA: Ask for help</div>
+        <div>TCL-MAP: Ask for help</div>
+      </div>
+    </div>
+
+    
+    <div class="dash"></div>
+
+    
+    <!-- Case 2 -->
+    <div class="case-row">
+      <div class="case-label">Case 2</div>
+
+      <div class="card">
+  
+  <!-- Video -->
+  <div class="mm-block">
+    <div class="mm-label">Video</div>
+    <video controls class="mm-video">
+      <source src="Supplementary/case2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Text -->
+  <div class="mm-block">
+    <div class="mm-label">Text</div>
+    <div class="mm-quote">
+      “Yeah, but I don't think anyone should have that much power.”
+    </div>
+  </div>
+
+  <!-- Audio -->
+  <div class="mm-block">
+    <div class="mm-label">Audio</div>
+    <audio controls class="mm-audio">
+      <source src="Supplementary/audio2.wav" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+</div>
+      
+      <div class="card stage1">
+        Bot's message:' In the video, the person's facial expressions and vocal tone are: 
+        1.Facial expressions: the person has a neutral expression, with a slight frown and furrowed brows, indicating a sense of skepticism or concern. 
+        2.Vocal tone: the person's voice is calm and measured, but with a hint of hesitation or reservation, suggesting that they are not entirely convinced or supportive of the idea being discussed. 
+        The intended meaning behind these words is that the person does not think it is appropriate or justifiable for anyone to have that much power or control over others. This reflects a sense of unease or discomfort with the concentration of power in the hands of a single individual or group. 
+        The emotion underlying this statement is likely distrust or skepticism.
+      </div>
+
+      <div class="card vars">
+        Top-M Text (5%)<br><br>
+        <div>Anyone Power</div><br>
+        Top-K Keyframe (10%)<br>
+        <img src="Supplementary/figure2.png" width="100%">
+      </div>
+
+      <div class="card pred">
+        <div>Ground Truth: Oppose</div>
+        <div><span class="ours">H²GF-Net: Oppose</span></div>
+        <div>MAG-BERT: Complain</div>
+        <div>MuLT: Criticize</div>
+        <div>MISA: Complain</div>
+        <div>TCL-MAP: Criticize</div>
+      </div>
+    </div>
+
+    
+    <div class="dash"></div>
+
+    
+    <!-- Case 3 -->
+    <div class="case-row">
+      <div class="case-label">Case 3</div>
+
+      <div class="card">
+  
+  <!-- Video -->
+  <div class="mm-block">
+    <div class="mm-label">Video</div>
+    <video controls class="mm-video">
+      <source src="Supplementary/case3.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Text -->
+  <div class="mm-block">
+    <div class="mm-label">Text</div>
+    <div class="mm-quote">
+      “I think we should  probably hear a  few more, uh,  female voices.”
+    </div>
+  </div>
+
+  <!-- Audio -->
+  <div class="mm-block">
+    <div class="mm-label">Audio</div>
+    <audio controls class="mm-audio">
+      <source src="Supplementary/audio3.wav" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+</div>
+      
+      <div class="card stage1">
+        Bot's message:' Based on the video provided, here are my observations: 
+        Facial expressions: 1.The person in the video has a neutral facial expression, with a slight smile on their face. 2.They are looking directly at the camera with a calm and relaxed demeanor. 
+        Vocal tone: 1.The person's vocal tone is friendly and approachable, with a hint of humor. 2.Their tone is also somewhat hesitant or uncertain, as they pause before speaking and use phrases like "uh" and "probably." 
+        Intended meaning: The person in the video is suggesting that they think it would be beneficial to hear more female voices in the conversation. 
+        Emotion: This phrase reflects a sense of inclusivity and diversity, as the person is advocating for the inclusion of more female perspectives in the discussion. 
+      </div>
+
+      <div class="card vars">
+        Top-M Text (5%)<br><br>
+        <div>Female Voices</div><br>
+        Top-K Keyframe (10%)<br>
+        <img src="Supplementary/figure3.png" width="100%">
+      </div>
+
+      <div class="card pred">
+        <div>Ground Truth: Advise</div>
+        <div><span class="ours">H²GF-Net: Advise</span></div>
+        <div>MAG-BERT: Inform</div>
+        <div>MuLT: Inform</div>
+        <div>MISA: Inform</div>
+        <div>TCL-MAP: Inform</div>
+      </div>
+    </div>
+
+ <div class="dash"></div>
+    
+    <!-- Case 4 -->
+    <div class="case-row">
+      <div class="case-label">Case 4</div>
+
+      <div class="card">
+  
+  <!-- Video -->
+  <div class="mm-block">
+    <div class="mm-label">Video</div>
+    <video controls class="mm-video">
+      <source src="Supplementary/case4.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Text -->
+  <div class="mm-block">
+    <div class="mm-label">Text</div>
+    <div class="mm-quote">
+      “That's tommy. He's lead organizer, total badass.”
+    </div>
+  </div>
+
+  <!-- Audio -->
+  <div class="mm-block">
+    <div class="mm-label">Audio</div>
+    <audio controls class="mm-audio">
+      <source src="Supplementary/audio4.wav" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+</div>
+
+      <div class="card stage1">
+          Bot's message:' based on the video provided, the person in the video is expressing admiration and approval towards tommy, the lead organizer of the event. 
+          The facial expressions used are: 1. a wide smile with slightly raised eyebrows, indicating happiness and excitement. 2. open and relaxed body language, with uncrossed arms and legs. 3. frequent nodding of the head, showing agreement and validation. 
+          The vocal tone used is: 1. friendly and approachable, with a hint of enthusiasm and energy. 2. no detectable signs of irony or sarcasm. 
+          The intended meaning behind his words is that tommy is a highly capable and impressive leader, who has done an excellent job organizing the event. This reflects admiration and respect for tommy's abilities. 
+          The emotion conveyed is likely positive and approving, such as admiration or appreciation. 
+
+      </div>
+
+      <div class="card vars">
+        Top-M Text (5%)<br><br>
+        <div>Lead Organizer</div><br>
+        Top-K Keyframe (10%)<br>
+        <img src="Supplementary/figure4.png" width="100%">
+      </div>
+
+      <div class="card pred">
+        <div>Ground Truth: Introduce</div>
+        <div><span class="ours">H²GF-Net: Introduce</span></div>
+        <div>MAG-BERT: Criticize</div>
+        <div>MuLT: Criticize</div>
+        <div>MISA: Criticize</div>
+        <div>TCL-MAP: Criticize</div>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+</body>
+</html>
